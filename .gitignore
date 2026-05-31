@@ -1,0 +1,44 @@
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# Model file (có thể rất nặng)
+models/*.pt
+models/*.pth
+
+# Output results
+outputs/
+runs/
+
+# Dataset (tuỳ chọn, thường KHÔNG push lên GitHub nếu quá nặng)
+data/raw/
+data/processed/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Streamlit cache (nếu có UI web)
+.streamlit/
+
+# PyInstaller build (nếu đóng gói .exe)
+build/
+dist/
+*.spec
