@@ -1,5 +1,12 @@
-from src.ui.main_window import App
+import subprocess
+import sys
 
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+subprocess.run(
+    [
+        sys.executable,
+        "-m",
+        "streamlit",
+        "run",
+        "src/ui/main_window.py"
+    ]
+)
