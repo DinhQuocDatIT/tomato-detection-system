@@ -65,3 +65,7 @@ Thumbs.db
 build/
 dist/
 *.spec
+# Video test
+assets/*.mp4
+assets/*.avi
+assets/*.mov

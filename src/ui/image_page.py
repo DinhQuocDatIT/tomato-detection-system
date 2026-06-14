@@ -16,38 +16,52 @@ def render(model):
 
     if uploaded_image:
 
-        with tempfile.NamedTemporaryFile(
-            delete=False,
-            suffix=".jpg"
-        ) as tmp:
-
+        # ==================================================
+        # SAVE TEMP IMAGE
+        # ==================================================
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
             tmp.write(uploaded_image.read())
             image_path = tmp.name
 
+        # ==================================================
+        # LOAD IMAGE GỐC
+        # ==================================================
+        original_image = cv2.imread(image_path)
+        original_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2RGB)
+
+        # ==================================================
+        # DETECT
+        # ==================================================
         detector = ImageDetector(model)
+        result_image, count = detector.detect(image_path)
 
-        result_image, count = detector.detect(
-            image_path
-        )
+        result_image = cv2.cvtColor(result_image, cv2.COLOR_BGR2RGB)
 
-        result_image = cv2.cvtColor(
-            result_image,
-            cv2.COLOR_BGR2RGB
-        )
-
-        col1, col2 = st.columns([4, 1])
+        # ==================================================
+        # UI LAYOUT ĐẸP
+        # ==================================================
+        col1, col2 = st.columns(2, gap="large")
 
         with col1:
-
+            st.markdown("### Ảnh gốc")
             st.image(
-                result_image,
-                caption="Kết quả nhận diện",
+                original_image,
                 use_container_width=True
             )
 
         with col2:
-
-            st.metric(
-                label="Tổng số cà chua",
-                value=count
+            st.markdown("### Kết quả nhận diện")
+            st.image(
+                result_image,
+                use_container_width=True
             )
+
+        # ==================================================
+        # METRIC (BELOW)
+        # ==================================================
+        st.markdown("---")
+
+        st.metric(
+            label="🍅 Tổng số cà chua phát hiện",
+            value=count
+        )

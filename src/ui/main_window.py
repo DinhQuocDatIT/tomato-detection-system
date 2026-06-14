@@ -23,7 +23,7 @@ st.set_page_config(
 )
 
 # ==================================================
-# CSS GIAO DIỆN
+# CSS GIAO DIỆN (MINIMAL CLEAN UI)
 # ==================================================
 st.markdown("""
 <style>
@@ -39,13 +39,38 @@ st.markdown("""
 }
 
 .sub-title {
-    color: gray;
+    color: #666;
     font-size: 18px;
     margin-bottom: 30px;
 }
 
 .block-container {
     padding-top: 2rem;
+}
+
+/* ===== FILE UPLOADER CLEAN STYLE ===== */
+section[data-testid="stFileUploaderDropzone"] {
+    border: 1.5px solid #e5e5e5 !important;
+    border-radius: 12px !important;
+    padding: 18px !important;
+    background: #fafafa !important;
+}
+
+/* Text */
+section[data-testid="stFileUploaderDropzone"] label {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: #444 !important;
+}
+
+/* Icon */
+section[data-testid="stFileUploaderDropzone"] svg {
+    fill: #666 !important;
+}
+
+/* Remove inner border */
+section[data-testid="stFileUploaderDropzone"] > div {
+    border: none !important;
 }
 
 </style>
@@ -74,27 +99,7 @@ st.markdown(
 def load_model():
     return ModelLoader().get_model()
 
-
 model = load_model()
-
-# ==================================================
-# SIDEBAR
-# ==================================================
-with st.sidebar:
-
-    st.title("Thông tin hệ thống")
-
-    st.success("Đã tải mô hình AI")
-
-    st.info("YOLO Object Detection")
-
-    st.markdown("---")
-
-    st.write("Tên dự án")
-    st.write("Hệ thống nhận diện cà chua")
-
-    st.write("Phiên bản")
-    st.write("v1.0")
 
 # ==================================================
 # TAB CHỨC NĂNG
