@@ -7,7 +7,12 @@ class VideoProcessor:
         self.cap = cv2.VideoCapture(video_path)
         assert self.cap.isOpened(), "Cannot open video"
 
-        self.region_points = [[544, 399], [1563, 225], [1830, 730], [1137, 982]]
+        self.region_points =[[542,   3],
+ [582 , 36],
+ [580 ,125],
+ [229 ,212],
+ [230 , 77],
+ [186 , 22]]
 
         self.counter = solutions.ObjectCounter(
             show=False,

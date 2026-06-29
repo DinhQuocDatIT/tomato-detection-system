@@ -8,12 +8,12 @@ class VideoDetector:
 
         self.model = model
 
-        self.count_polygon = np.array([
-            [544, 399],
-            [1563, 225],
-            [1830, 730],
-            [1137, 982]
-        ], np.int32)
+        self.count_polygon = np.array([[542,   3],
+ [582 , 36],
+ [580 ,125],
+ [229 ,212],
+ [230 , 77],
+ [186 , 22]], np.int32)
 
         self.counted_ids = set()
         self.total_count = 0

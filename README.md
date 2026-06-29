@@ -58,6 +58,30 @@ object_counter_app/
 ├── README.md
 └── .gitignore
 ```
+```text
+tomato-detection-system/
+├── models/
+│   └── best_v1.pt             # Mô hình YOLOv8 đã huấn luyện
+├── src/
+│   ├── core/                  # Xử lý logic chính
+│   │   ├── counter.py         # Đếm đối tượng trong vùng polygon
+│   │   ├── image_detector.py  # Nhận diện trên ảnh tĩnh
+│   │   ├── model_loader.py    # Tải mô hình YOLO
+│   │   ├── video_detector.py  # Xử lý video + đếm
+│   │   ├── video_processor.py # Xử lý video bằng Ultralytics
+│   │   └── __init__.py        # Đánh dấu core là Python package
+│   └── ui/                    # Giao diện người dùng
+│       ├── image_page.py      # Tab nhận diện ảnh
+│       ├── main_window.py     # Ứng dụng Streamlit chính
+│       ├── video_page.py      # Tab nhận diện video
+│       └── __init__.py        # Đánh dấu ui là Python package
+├── assets/
+│   └── test.mp4               # Video mẫu để test
+├── main.py                    # Điểm khởi chạy chương trình
+├── requirements.txt           # Danh sách thư viện cần cài đặt
+└── .venv/                     # Môi trường ảo Python (không cần bỏ vào báo cáo)
+```
+
 
 ## Cài đặt
 

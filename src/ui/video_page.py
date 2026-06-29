@@ -8,7 +8,7 @@ def render(model):
 
     st.subheader("Phân tích video")
 
-    VIDEO_PATH = "assets/test.mp4"
+    VIDEO_PATH = "assets/test_v1.mp4"
 
     col1, col2 = st.columns([4, 1])
 
@@ -32,7 +32,7 @@ def render(model):
             video_placeholder.image(
                 frame_rgb,
                 channels="RGB",
-                use_container_width=True
+                use_container_width=False
             )
 
             count_placeholder.metric(
